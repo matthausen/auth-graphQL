@@ -8,8 +8,8 @@ export default (WrappedComponent) => {
 
 
     class RequireAuth extends Component {
-        componentDidMount() {
-            if (!this.props.data.user && !this.props.data.user) {
+        componentWillUpdate(nextProps) {
+            if (!nextProps.props.data.user && !nextProps.props.data.user) {
                 hashHistory.push('/login');
             }
         }
